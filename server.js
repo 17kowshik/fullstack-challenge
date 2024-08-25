@@ -1,7 +1,21 @@
 const express = require('express');
 const app = express();
-
+const cors = require('cors');
 app.use(express.json());
+
+const allowedOrigins = ['http://http://127.0.0.1:5500', 'https://fullstack-challenge-bajaj.vercel.app'];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type']
+}));
 
 app.post('/bfhl', (req, res) => {
     const { data } = req.body;
