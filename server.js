@@ -40,6 +40,6 @@ app.post('/bfhl', (req, res) => {
 app.get('/bfhl', (req, res) => {
     res.json({ operation_code: 1 });
 });
-
+app.options('*', cors());
 const port = 8080;
 app.listen(port, () => console.log(`Server running on port ${port}`));
