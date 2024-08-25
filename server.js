@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 app.use(express.json());
 
-const allowedOrigins = ['https://17kowshik.github.io/fullstack-challenge/', 'https://fullstack-challenge-bajaj.vercel.app'];
+const allowedOrigins = ['https://17kowshik.github.io/', 'https://fullstack-challenge-bajaj.vercel.app'];
 
 app.use(cors({
     origin: function (origin, callback) {
