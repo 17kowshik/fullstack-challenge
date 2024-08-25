@@ -1,9 +1,12 @@
 const express = require('express');
-const app = express();
 const cors = require('cors');
+const app = express();
+
 app.use(express.json());
 
-const allowedOrigins = ['https://17kowshik.github.io/', 'https://fullstack-challenge-bajaj.vercel.app'];
+const allowedOrigins = [
+    'https://17kowshik.github.io'
+];
 
 app.use(cors({
     origin: function (origin, callback) {
@@ -14,7 +17,7 @@ app.use(cors({
         }
     },
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Access-Control-Allow-Origin']
+    allowedHeaders: ['Content-Type']
 }));
 
 app.post('/bfhl', (req, res) => {
@@ -40,6 +43,8 @@ app.post('/bfhl', (req, res) => {
 app.get('/bfhl', (req, res) => {
     res.json({ operation_code: 1 });
 });
+
 app.options('*', cors());
+
 const port = 8080;
 app.listen(port, () => console.log(`Server running on port ${port}`));
