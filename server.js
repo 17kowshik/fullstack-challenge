@@ -14,7 +14,7 @@ app.use(cors({
         }
     },
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type']
+    allowedHeaders: ['Content-Type', 'Access-Control-Allow-Origin']
 }));
 
 app.post('/bfhl', (req, res) => {
